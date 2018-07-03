@@ -4,16 +4,11 @@
 }
 
 #infoBeginning{
+    padding:10px 0 10px 0;
     text-align: center;
     background-color: #F8EABD;
 }
-.theh3{
-    margin-bottom:0px;
-}
 
-a{
-    text-decoration: bold;
-}
 #navBar{
     background-color:grey;
 }
@@ -31,8 +26,18 @@ a{
     padding: 0 50px 0 50px;
 }
 
+nav{
+    font-size:18pt;
+    padding:0;
+    height:50px;
+}
+
 .easyHard{
     color:red;
+    border:none;
+}
+.hovering{
+    background-color:grey;
 }
 
 #container{
