@@ -19,7 +19,6 @@ var playerScore = playerScoreSpan.textContent;
 var tries = 0;
 var pickedColor;
 var easyGame = true;
-var colorFound = false;
 sixColors = [];
 
 initListeners();
@@ -64,14 +63,17 @@ function initListeners(){
     for(var i = 0 ; i < squares.length ; i ++){
         squares[i].addEventListener("click" , function(){
             var rgb = this.style.backgroundColor;
+            
             if( rgb == pickedColor){
-                colorFound();
+                    colorFound();
+                
             }
             else{
                 this.style.backgroundColor = "rgb(0, 0, 0, 0.0)";
                 isCorrect.innerHTML = "<strong><em> Try Again. </em></strong>";
                 tries ++;
             }
+        
         });
     }
 }
@@ -88,7 +90,6 @@ function randColorEasy(){
 //Setting new colors to each squares
 // function called whenever 'easy' 'hard' or 'new game' button are pressed 
 function init(){
-    colorFound = false;
     topDiv.style.backgroundColor = "#F8EAB";
     isCorrect.innerHTML = "";
     tries = 0;
@@ -165,7 +166,6 @@ function setnewColorsHard(){
 
 //if user clicks on right blocks
 function colorFound(){
-    colorFound = true;
     for(var i = 0 ; i < squares.length ; i ++){
         squares[i].style.backgroundColor = pickedColor;
 
