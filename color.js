@@ -1,7 +1,7 @@
 /**
  *      BUGSS
  *  1) When user found color, continuous clicking on other boxes increases score because color matches
- *              Partially fixed. Can't score, but blocks dissapear again, no further issues
+ *              - Partially fixed. Can't score, but blocks dissapear again, no further issues
  *  2) hard mode -> cannot 'win', system doesnt go in if statement where color match
  *              Can't figure out under what circumstances bug appear
  */
@@ -19,6 +19,7 @@ var playerScore = playerScoreSpan.textContent;
 var tries = 0;
 var pickedColor;
 var easyGame = true;
+var colorFound = false;
 sixColors = [];
 
 initListeners();
@@ -87,8 +88,8 @@ function randColorEasy(){
 //Setting new colors to each squares
 // function called whenever 'easy' 'hard' or 'new game' button are pressed 
 function init(){
-
-    //topDiv.style.backgroundColor = "#F8EAB";
+    colorFound = false;
+    topDiv.style.backgroundColor = "#F8EAB";
     isCorrect.innerHTML = "";
     tries = 0;
 
@@ -113,7 +114,7 @@ function init(){
     else{
         setnewColorsHard();
     }
-    topDiv.style.backgroundColor = pickedColor;
+    // topDiv.style.backgroundColor = pickedColor;
 }
 
 function setnewColorsHard(){
@@ -164,8 +165,10 @@ function setnewColorsHard(){
 
 //if user clicks on right blocks
 function colorFound(){
+    colorFound = true;
     for(var i = 0 ; i < squares.length ; i ++){
         squares[i].style.backgroundColor = pickedColor;
+
     }
     isCorrect.innerHTML = "<strong><em>Correct !!! </em></strong>";
     topDiv.style.backgroundColor = pickedColor;
